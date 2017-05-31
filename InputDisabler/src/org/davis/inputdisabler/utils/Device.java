@@ -21,14 +21,11 @@ public final class Device {
     public static void enableDevices(boolean enable, boolean touch, boolean keys) {
         // Turn on keys input
         if(keys) {
-            if(!(enable && read_sysfs(Constants.TK_FORCE_DISABLE) > 0)) {
-                try {
-                    write_sysfs(Constants.TK_PATH, enable);
-                } catch (Exception e) {
-                    Log.e(TAG, "Failed to " + (enable ? "enable" : "disable") + " keys");
-                }
-            } else {
-                Log.d(TAG, "Keys are force disabled, not turning on");
+            try {
+                write_sysfs(Constants.TK_PATH, enable);
+                write_sysfs(Constants.TK_FORCE_DISABLE, enable);      
+            } catch (Exception e) {
+                Log.e(TAG, "Failed to " + (enable ? "enable" : "disable") + " keys");
             }
         }
 
