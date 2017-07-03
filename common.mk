@@ -44,11 +44,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml
-
-# Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
-	
+ 
 # Touch issue workaround
 PRODUCT_PACKAGES += \
     InputDisabler
