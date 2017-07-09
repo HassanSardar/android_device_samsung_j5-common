@@ -42,7 +42,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml
- 
+
 # Touch issue workaround
 PRODUCT_PACKAGES += \
     InputDisabler
@@ -81,21 +81,21 @@ PRODUCT_PACKAGES += \
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8916
-   
+
 # Healthd packages
 PRODUCT_PACKAGES += \
     charger_res_images
-	
+
 # Power
 PRODUCT_PACKAGES += \
     power.msm8916
-	
+
 # Unify
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/releasetools/run_scripts.sh:install/bin/run_scripts.sh \
     $(LOCAL_PATH)/releasetools/functions.sh:install/bin/functions.sh \
     $(LOCAL_PATH)/releasetools/variant_hook.sh:install/bin/variant_hook.sh \
-    $(LOCAL_PATH)/releasetools/nfc/copy_nfc_configs.sh:install/bin/nfc/copy_nfc_configs.sh
+    $(LOCAL_PATH)/releasetools/nfc/delete_nfc.sh:install/bin/nfc/delete_nfc.sh
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -226,7 +226,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
-    
+
 # Config files for hostapd
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
@@ -253,7 +253,7 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf
-	
+
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
