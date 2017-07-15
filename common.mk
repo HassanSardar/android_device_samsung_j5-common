@@ -121,6 +121,7 @@ PRODUCT_PACKAGES += \
     libOmxAmrEnc \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
+    libdrmclearkeyplugin \
     libstagefrighthw
 
 # IPv6 tethering
