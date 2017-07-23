@@ -20,43 +20,26 @@ import org.cyanogenmod.internal.util.FileUtils;
 
 public class VibratorHW {
 
-    private static final String DEFAULT_PATH = "/sys/class/timed_output/vibrator/pwm_default";
-    private static final String LEVEL_PATH = "/sys/class/timed_output/vibrator/pwm_value";
-    private static final String MAX_PATH = "/sys/class/timed_output/vibrator/pwm_max";
-    private static final String MIN_PATH = "/sys/class/timed_output/vibrator/pwm_min";
-    private static final String THRESHOLD_PATH = "/sys/class/timed_output/vibrator/pwm_threshold";
+    private static final int DEFAULT = 10000;
+    private static final String LEVEL_PATH = "/sys/class/timed_output/vibrator/intensity";
+    private static final int MAX = 10000;
+    private static final int MIN = 3000;
+    private static final int THRESHOLD = -1;
 
     public static boolean isSupported() {
-        return FileUtils.isFileWritable(LEVEL_PATH) &&
-                FileUtils.isFileReadable(LEVEL_PATH) &&
-                FileUtils.isFileReadable(DEFAULT_PATH) &&
-                FileUtils.isFileReadable(MAX_PATH) &&
-                FileUtils.isFileReadable(MIN_PATH) &&
-                FileUtils.isFileReadable(THRESHOLD_PATH);
+        return FileUtils.isFileWritable(LEVEL_PATH);
     }
 
     public static int getMaxIntensity()  {
-        try {
-            return Integer.parseInt(FileUtils.readOneLine(MAX_PATH));
-        } catch (NumberFormatException e) {
-            return -1;
-        }
+        return MAX;
     }
 
     public static int getMinIntensity()  {
-        try {
-            return Integer.parseInt(FileUtils.readOneLine(MIN_PATH));
-        } catch (NumberFormatException e) {
-            return -1;
-        }
+        return MIN;
     }
 
     public static int getWarningThreshold()  {
-        try {
-            return Integer.parseInt(FileUtils.readOneLine(THRESHOLD_PATH));
-        } catch (NumberFormatException e) {
-            return -1;
-        }
+        return THRESHOLD;
     }
 
     public static int getCurIntensity()  {
@@ -68,11 +51,7 @@ public class VibratorHW {
     }
 
     public static int getDefaultIntensity()  {
-        try {
-            return Integer.parseInt(FileUtils.readOneLine(DEFAULT_PATH));
-        } catch (NumberFormatException e) {
-            return -1;
-        }
+        return DEFAULT;
     }
 
     public static boolean setIntensity(int intensity)  {
